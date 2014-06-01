@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="businesscard_start.xsd">
+	<Name>Mujahed Syed</Name>
+	<phone type="mobile">(0044) 12345</phone>
+	<phone type="work">(0044) 67890</phone>
+	<phone type="fax">(0044) 12312</phone>
+	<email>mujahed@syed.com</email>
+</BusinessCard>
