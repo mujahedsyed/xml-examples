@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Business Card DOM Example 2</title>
+		<script type="text/javascript">
+			function createBizCards() {
+				var xmldata1 = document.getElementById("xmldata1");
+				var bizCards = xmldata1.getElementsByTagName("BusinessCard");
+
+				for (var i = 0; i < bizCards.length; i++) {
+					var currentCard = bizCards[i];
+
+					var newCard = document.createElement("div");
+					newCard.setAttribute("className", "BusinessCard");
+					newCard.setAttribute("class", "BusinessCard");
+
+					var newName = document.createElement("div");
+					newCard.setAttribute("className", "Name");
+					newCard.setAttribute("class", "Name");
+
+					var nameStr = document.createTextNode(currentCard.getElementsByTagName("Name")[0].firstChild.data);
+					newName.appendChild(nameStr);
+					newCard.appendChild(newName);
+
+					var phones = currentCard.getElementsByTagName("phone");
+					var newPhone;
+
+					for (var j = 0; j < phones.length; j++) {
+						newPhone = document.createElement("div");
+						newPhone.setAttribute("className", "phone");
+						newPhone.setAttribute("class", "phone");
+
+						var labelStr = currentCard.getElementsByTagName("phone")[j].getAttribute("type") + ": ";
+						var phoneStr = document.createTextNode(labelStr + currentCard.getElementsByTagName("phone")[j].firstChild.data);
+						newPhone.appendChild(phoneStr);
+						newCard.appendChild(newPhone);
+
+					}
+
+					var newEmail = document.createElement("div");
+					newEmail.setAttribute("className", "email");
+					newEmail.setAttribute("class", "email");
+					var emailStr = document.createTextNode("email: "+currentCard.getElementsByTagName("email")[0].firstChild.data);
+					newEmail.appendChild(emailStr);
+					newCard.appendChild(newEmail);
+					
+					document.getElementsByTagName("body")[0].appendChild(newCard);
+				}
+			}
+
+
+			window.addEventListener("load", createBizCards);
+		</script>
+		<link rel="stylesheet" href="businesscard.css" />
+	</head>
+	<body>
+		<xml id="xmldata1" style="display:none">
+			<BusinessCards>
+				<BusinessCard>
+					<Name>
+						Mujahed Syed
+					</Name>
+					<phone type="mobile">
+						00 44 123356
+					</phone>
+					<phone type="work">
+						00 44 1233777
+					</phone>
+					<phone type="fax">
+						00 44 123888
+					</phone>
+					<email>
+						mujahed@syed.com
+					</email>
+				</BusinessCard>
+			</BusinessCards>
+		</xml>
+
+	</body>
+</html>

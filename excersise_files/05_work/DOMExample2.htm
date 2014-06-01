@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Business Card DOM Example 2</title>
+		<script type="text/javascript">
+			function populateFields() {
+				var xmldata1 = document.getElementById("xmldata1");
+				var bizcard = xmldata1.getElementsByTagName("BusinessCard")[0];
+
+				var name = bizcard.getElementsByTagName("Name")[0].firstChild.data;
+				var phone1Label = bizcard.getElementsByTagName("phone")[0].getAttribute("type") + ": ";
+				var phone1 = bizcard.getElementsByTagName("phone")[0].firstChild.data;
+				var phone2Label = bizcard.getElementsByTagName("phone")[1].getAttribute("type") + ": ";
+				var phone2 = bizcard.getElementsByTagName("phone")[1].firstChild.data;
+				var phone3Label = bizcard.getElementsByTagName("phone")[2].getAttribute("type") + ": ";
+				var phone3 = bizcard.getElementsByTagName("phone")[2].firstChild.data;
+				var email = bizcard.getElementsByTagName("email")[0].firstChild.data;
+
+				document.getElementById("Name").innerHTML = name;
+				document.getElementById("phone1").innerHTML = phone1Label + phone1;
+				document.getElementById("phone2").innerHTML = phone2Label + phone2;
+				document.getElementById("phone3").innerHTML = phone3Label + phone3;
+				document.getElementById("email").innerHTML = "email: " + email;
+
+				document.querySelector("#hideEmail").addEventListener("click", hideEmail);
+				document.querySelector("#showEmail").addEventListener("click", showEmail);
+			}
+
+			function hideEmail() {
+				document.getElementById("email").style.display = 'none';
+			}
+
+			function showEmail() {
+				document.getElementById("email").style.display = '';
+			}
+
+
+			window.addEventListener("load", populateFields);
+		</script>
+	</head>
+	<body>
+		<xml id="xmldata1" style="display:none">
+			<BusinessCard>
+				<Name>
+					Mujahed Syed
+				</Name>
+				<phone type="mobile">
+					00 44 123356
+				</phone>
+				<phone type="work">
+					00 44 1233777
+				</phone>
+				<phone type="fax">
+					00 44 123888
+				</phone>
+				<email>
+					mujahed@syed.com
+				</email>
+			</BusinessCard>
+		</xml>
+
+		<div class="BusinessCard"></div>
+		<div class="Name" id="Name"></div>
+		<div class="phone" id="phone1"></div>
+		<div class="phone" id="phone2"></div>
+		<div class="phone" id="phone3"></div>
+		<div class="email" id="email"></div>
+		<button id="hideEmail">
+			Hide Email
+		</button>
+		<button id="showEmail">
+			Show Email
+		</button>
+	</body>
+</html>

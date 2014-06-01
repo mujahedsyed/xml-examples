@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="businesscard.css"?>
+
+<BusinessCards>
+<BusinessCard>
+	<Name>Mujahed Syed</Name>
+	<phone type="mobile" primary="primary">(0044) 12345</phone>
+	<phone type="work">(0044) 67890</phone>
+	<phone type="fax">(0044) 12312</phone>
+	<email>mujahed@syed.com</email>
+</BusinessCard>
+<BusinessCard>
+	<Name>Maliha Syed</Name>
+	<phone type="mobile" primary="primary">(0044) 12345</phone>
+	<phone type="work">(0044) 67890</phone>
+	<phone type="fax">(0044) 12312</phone>
+	<email>maliha@syed.com</email>
+</BusinessCard>
+</BusinessCards>
